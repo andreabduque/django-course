@@ -1,0 +1,12 @@
+WSGI
+Urls
+	Procura o match da URL recebida para encaminhar a requisição
+
+Models
+Views
+	Funcoes ou classes responsáveis por responder à requisição
+
+Templates
+	Sao os arquivos HTML com melhorias
+
+Settings
