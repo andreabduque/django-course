@@ -10,3 +10,4 @@ Templates
 	Sao os arquivos HTML com melhorias
 
 Settings
+	
