@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from core.views import home
+from core.views import home, about
 
 urlpatterns = [
 	#URL pra dar match, view
-	url(r'^$', home),
+	# url(r'^$', home),
+    url(r'^about/', about),
+    url(r'^hello/', home),
     url(r'^admin/', admin.site.urls),
 ]

@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<img src="{% static "me.jpg" %}" alt="">
+
+<h3>Ela vai cursar essas disciplinas:</h3>
+<link rel="stylesheet" type="text/css" href="{% static "table.css" %}">
+
+<table>
+  <tr>
+      <th>Disciplinas</th>
+      <th>Mensagem</th>
+  </tr>
+  {% for disciplina in disciplinas %}
+    <tr>
+      <td>{{disciplina}}</td>
+
+      {% if disciplina == 'TG' %}
+          <td> LASCOU</td>
+      {% else %}
+         <td> OK</td>
+      {% endif %}
+
+    </tr>
+  {% endfor %}
+</table>
+{% endblock content %}

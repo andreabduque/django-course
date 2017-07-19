@@ -2,7 +2,19 @@ WSGI
 Urls
 	Procura o match da URL recebida para encaminhar a requisição
 
-Models
+Models - 
+
+init:
+
+python manage.py migrate
+python manage.py createsuperuser
+
+changes in models:
+
+python manage.py makemigrations
+python manage.py migrate
+
+
 Views
 	Funcoes ou classes responsáveis por responder à requisição
 
@@ -11,3 +23,10 @@ Templates
 
 Settings
 	
+
+ORM - Object Relational Mapping
+
+SQL - INSERT INTO aluno [...]
+Django ORM - novo_aluno = Aluno() ou
+			 novo_aluno.nome = "Andrea"
+			 novo_aluno.save() 
