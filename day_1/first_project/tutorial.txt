@@ -30,3 +30,5 @@ SQL - INSERT INTO aluno [...]
 Django ORM - novo_aluno = Aluno() ou
 			 novo_aluno.nome = "Andrea"
 			 novo_aluno.save() 
+
+			 http://www.gilenofilho.com.br/como-funciona-o-orm-do-django/
