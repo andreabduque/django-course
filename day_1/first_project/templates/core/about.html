@@ -27,4 +27,16 @@
     </tr>
   {% endfor %}
 </table>
+
+{%if msg %}
+  <h3>{{msg}}</h3>
+{%endif%}
+
+
+<form action="" method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit">enviar</button>
+</form> 
+
 {% endblock content %}

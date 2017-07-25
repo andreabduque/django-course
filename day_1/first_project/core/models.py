@@ -1,5 +1,7 @@
 from django.db import models
 
+#Study OneToOneField
+
 # Create your models here.
 class Curso(models.Model):
 	nome = models.CharField(max_length=255)
