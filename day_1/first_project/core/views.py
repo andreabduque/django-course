@@ -1,9 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic import View
 from django.views.generic.base import TemplateView
 from .forms import MatriculaModelForm, LoginForm
 from .models import Aluno
+from django.contrib.auth import authenticate,logout as auth_logout, login as auth_login
+
 
 # Create your views here.
 # def home(request):
@@ -99,11 +101,15 @@ class LoginView(View):
 		if form.is_valid():
 			username = form.cleaned_data.get('email')
 			password = form.cleaned_data.get('senha')
-			user=authenticate(request, username=username, password=password)
+
+			user = authenticate(request, username=username, password=password)
+			print("USER")
+			print(user)
 			if user is not None:
 				auth_login(request, user)
-				#return redirect('/profile')
-				return HttpResponse("autenticou")
+				print("reocnheu user")
+				return redirect('profile')
+				# return HttpResponse("autenticou")
 
 			else:
 				msg ='Email ou Senha Incorreto'

@@ -1,10 +1,15 @@
+{% extends "base.html" %}
+
 {%block content%}
+<div class="col-sm-4 offset-md-4">
 	<h3>Login:</h3>
+	<!-- <br><br> -->
 	<form action="" method="POST">
 		{%csrf_token%}
 
 		{{form.as_p}}
-		<button type="submit"> entrar </button>
+		<button type="submit" class="btn btn-primary">Sign In</button>
 	</form>
+</div>
 <!-- href="{% url 'login' %}" -->
 {%endblock content%}

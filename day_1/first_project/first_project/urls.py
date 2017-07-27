@@ -21,7 +21,7 @@ urlpatterns = [
 	#URL pra dar match, view
 	url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^signup/', SignUpView.as_view()),
-    url(r'^profile/', ProfileView.as_view()),
+    url(r'^profile/', ProfileView.as_view(), name='profile'),
     # url(r'^hello/', home),
     url(r'^admin/', admin.site.urls),
 ]
