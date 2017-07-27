@@ -1,6 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-#Study OneToOneField
 
 # Create your models here.
 class Curso(models.Model):
@@ -19,8 +19,9 @@ class Aluno(models.Model):
 	email = models.EmailField(max_length=40)
 	cpf = models.CharField(max_length=14)
 	curso = models.ForeignKey('Curso')
-	rank = models.DecimalField(max_digits=3, decimal_places=2)
-	data_nascimento = models.DateField()
+	rank = models.DecimalField(default=0, max_digits=3, decimal_places=2)
+	user = models.OneToOneField(User)
+	# data_nascimento = models.DateField()
 
 	def __str__(self):
 		return '{0}'.format(self.nome)
@@ -36,5 +37,3 @@ class Disciplina(models.Model):
         choices= (('perfil', 'Perfil'), ('livre', 'Livre'), ('obrigatoria', 'Obrigatoria')),
         default='obrigatoria'
     )
-
-   
