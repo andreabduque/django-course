@@ -4,6 +4,7 @@ from django.views.generic import View
 from django.views.generic.base import TemplateView
 from .forms import MatriculaModelForm, LoginForm
 from .models import Aluno
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,logout as auth_logout, login as auth_login
 
 
@@ -42,11 +43,14 @@ def signup(request):
 
 	return render(request, 'core/signup.html', {'form':form, 'msg':msg})
 
+def logout(request):
+	auth_logout(request)
+	return redirect('/login')
+
 class SignUpView(View):
 	def get(self, request):
 		form = MatriculaModelForm()
-		msg = None
-		return render(request, 'core/signup.html', {'form':form, 'msg':msg})
+		return render(request, 'core/signup.html', {'form':form})
 
 	def post(self, request):
 		form = MatriculaModelForm(request.POST)
@@ -60,9 +64,11 @@ class SignUpView(View):
 
 			return render(request, 'core/signup.html', {'form':form, 'msg':msg})
 
+# @login_required
 class ProfileView(View):
 	def get(self, request):
-		return render(request, 'core/about.html', {'nome':'Andrea', 'curso':'Computer Engineering', 'disciplinas':['IC2', 'TG', 'TAIA']})
+		# return render(request, 'core/about.html', {'nome':'Andrea', 'curso':'Computer Engineering', 'disciplinas':['IC2', 'TG', 'TAIA']})
+		return profile(request)
 
 	def post(self, request):
 		pass
@@ -85,9 +91,13 @@ def about(request):
 
 	return render(request, 'core/about.html', {'nome':'Andrea', 'curso':'Computer Engineering', 'disciplinas':['IC2', 'TG', 'TAIA'], 'form':form})
 
-# @login_required
-# def profile(request):
-# 	return render(request, 'core/profile.html', {'user':request.user})
+
+
+@login_required
+def profile(request):
+	print("AQUIII")
+	print(request.user.aluno)
+	return render(request, 'core/about.html', {'user':request.user, 'disciplinas':['IC2', 'TG', 'TAIA']})
 
 
 class LoginView(View):
@@ -103,12 +113,10 @@ class LoginView(View):
 			password = form.cleaned_data.get('senha')
 
 			user = authenticate(request, username=username, password=password)
-			print("USER")
 			print(user)
 			if user is not None:
 				auth_login(request, user)
-				print("reocnheu user")
-				return redirect('profile')
+				return redirect('/profile')
 				# return HttpResponse("autenticou")
 
 			else:
