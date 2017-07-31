@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{%block content%}
+<div class="col-sm-4 offset-md-4">
+	<h5 class="text-danger">{{msg}}</h5>
+	<h3>Login:</h3>
+	<!-- <br><br> -->
+	<form action="" method="POST">
+		{%csrf_token%}
+
+		{{form.as_p}}
+		<br>
+		<button type="submit" class="btn btn-primary">Enter</button>
+		<a href="{% url 'signup' %}" >
+			<button type="button" class="btn btn-success" >Sign up</button>
+		</a>
+
+	</form>
+</div>
+{%endblock content%}

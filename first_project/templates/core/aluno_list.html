@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+	{% for aluno in object_list%}
+		<h2><a href="{%url 'aluno' pk=aluno.id%}" >{{aluno.nome}}</a></h2>
+		<ul>
+			<li>{{aluno.cpf}}</li>
+			<li>{{aluno.curso}}</li>
+			<li><img src="/media/{{aluno.foto}}"></li>
+		</ul>
+	{%endfor%}
+{% endblock content %}
