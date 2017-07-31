@@ -7,6 +7,9 @@
 
 <h3>Olá, {{user.aluno.nome}} do curso {{user.aluno.curso.nome}}</h3>
 
+<img src="/media/{{user.aluno.foto}}">
+
+
 <!-- <img src="{% static "me.jpg" %}" alt=""> -->
 
 <!-- <h3>Você vai cursar essas disciplinas:</h3>
@@ -33,10 +36,10 @@
 
 <div class="btn-group" role="group" aria-label="Basic example">
   <a href="{% url 'logout' %}" >
-    <button type="button" class="btn btn-secondary" >Sair</button>
+    <button type="button" class="btn btn-secondary btn-lg" >Sair</button>
   </a>
   <a href="{% url 'alunos' %}" >
-    <button href="{% url 'alunos' %}" type="button" class="btn btn-secondary">Ver colegas</button>
+    <button href="{% url 'alunos' %}" type="button" class="btn btn-secondary btn-lg">Ver colegas</button>
   </a>
 </div>
 

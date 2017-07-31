@@ -55,8 +55,7 @@ class SignUpView(View):
 		return render(request, 'core/signup.html', {'form':form})
 
 	def post(self, request):
-		form = MatriculaModelForm(request.POST)
-
+		form = MatriculaModelForm(request.POST, request.FILES)
 		if(form.is_valid()):
 			print("eh valido")
 			form.save()

@@ -4,12 +4,9 @@
 	{% for aluno in object_list%}
 		<h2><a href="{%url 'aluno' pk=aluno.id%}" >{{aluno.nome}}</a></h2>
 		<ul>
-			<li>{{aluno.cpf}}</li>
+			<!-- <li>{{aluno.cpf}}</li> -->
 			<li>{{aluno.curso}}</li>
-			<!-- <li>{{aluno.data_de_nascimento}}</li> -->
-			<!-- <li>{{aluno.media}}</li> -->
-			<!-- <li>{{aluno.user.email}}</li> -->
-			<!-- <li><img src="{{MEDIA_URL}}/{{aluno.foto}}"></li> -->
+			<li><img src="/media/{{aluno.foto}}"></li>
 		</ul>
 	{%endfor%}
 {% endblock content %}
