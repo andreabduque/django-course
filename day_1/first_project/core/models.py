@@ -21,6 +21,7 @@ class Aluno(models.Model):
 	curso = models.ForeignKey('Curso')
 	rank = models.DecimalField(default=0, max_digits=3, decimal_places=2)
 	user = models.OneToOneField(User)
+	foto = models.ImageField()
 	# data_nascimento = models.DateField()
 
 	def __str__(self):

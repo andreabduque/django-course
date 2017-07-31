@@ -28,7 +28,7 @@ class MatriculaModelForm(forms.ModelForm):
 
     class Meta:
         model = Aluno
-        fields = ['nome', 'cpf', 'curso', 'email', 'senha']
+        fields = ['nome', 'cpf', 'curso', 'email', 'senha', 'foto']
 
     def clean(self):
         #import pdb; ipdb.set_trace()

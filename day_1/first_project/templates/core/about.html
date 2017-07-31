@@ -7,9 +7,9 @@
 
 <h3>Olá, {{user.aluno.nome}} do curso {{user.aluno.curso.nome}}</h3>
 
-<img src="{% static "me.jpg" %}" alt="">
+<!-- <img src="{% static "me.jpg" %}" alt=""> -->
 
-<h3>Você vai cursar essas disciplinas:</h3>
+<!-- <h3>Você vai cursar essas disciplinas:</h3>
 <link rel="stylesheet" type="text/css" href="{% static "table.css" %}">
 
 <table>
@@ -29,9 +29,18 @@
 
     </tr>
   {% endfor %}
-</table>
+</table> -->
 
-<h3><a href="{% url 'logout' %}">sair</h3>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <a href="{% url 'logout' %}" >
+    <button type="button" class="btn btn-secondary" >Sair</button>
+  </a>
+  <a href="{% url 'alunos' %}" >
+    <button href="{% url 'alunos' %}" type="button" class="btn btn-secondary">Ver colegas</button>
+  </a>
+</div>
+
+<!-- <h3><a href="{% url 'logout' %}">sair</h3> -->
 
 
 {% endblock content %}

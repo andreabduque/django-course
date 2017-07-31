@@ -2,28 +2,30 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic import View
 from django.views.generic.base import TemplateView
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from .forms import MatriculaModelForm, LoginForm
 from .models import Aluno
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,logout as auth_logout, login as auth_login
 
 
-# Create your views here.
-# def home(request):
-# 	return HttpResponse("my first view")
+def home(request):
+	return  render(request, 'home.html')
+
+# class HomeView(TemplateView):
+# 	template_name = 'core/home.html'
+#
+# 	def get_context_data(self, **kwargs):
+# 		context = super(HomePageView, self).get_context_data(**kwargs)
+#
+# 		if(request.user):
+# 			context['user'] = request.user
+#
+# 		context['msg'] = 'essa msg aparece no front'
+# 		return context
 
 
-class HomeView(TemplateView):
-	template_name = 'core/home.html'
-
-	def get_context_data(self, **kwargs):
-		context = super(HomePageView, self).get_context_data(**kwargs)
-
-		if(request.user):
-			context['user'] = request.user
-
-		context['msg'] = 'essa msg aparece no front'
-		return context
 
 def signup(request):
 	form = MatriculaModelForm()
@@ -122,3 +124,16 @@ class LoginView(View):
 			else:
 				msg ='Email ou Senha Incorreto'
 				return render(request, 'core/login.html', {'form':form, 'msg':msg})
+
+class AlunoListView(ListView):
+	model = Aluno
+	# def get_context_data(self, **kwargs):
+	# 	context = super(AlunoListView, self).get_context_data(**kwargs)
+	#
+	# 	if(request.user):
+	# 		context['user'] = request.user
+	#
+	# 	return context
+
+class AlunoDetailView(DetailView):
+	model = Aluno
