@@ -1,4 +1,0 @@
--Login
--Cadastro
--Ver listagem de cadastro
--Ver detalhes sobre a coisa
